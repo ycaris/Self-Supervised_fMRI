@@ -1,8 +1,11 @@
 import json
 import os
 import io
+import sys 
 import torch.utils.data.dataset
-from .transform import *
+
+sys.path.append('/home/yz2337/project/multi_fmri/code/utils')
+from utils.transform import *
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 import numpy as np
@@ -33,29 +36,12 @@ def collate_fn(batch):
 
 def get_loader(args):
 
-    # torch data loader
-    # Set up data augmentation
-    # train_transforms = Compose([
-    #     # RandomCrop(args.CROP_IMG_SIZE, args.CONST.SCALE),
-    #     # FlipRotate(),
-    #     # BGR2RGB(),
-    #     # RandomColorChannel(),
-    #     # utils.data_transforms.ColorJitter(cfg.DATA.COLOR_JITTER),
-    #     # utils.data_transforms.Normalize(mean=cfg.DATA.MEAN, std=cfg.DATA.STD),
-    #     # utils.data_transforms.RandomGaussianNoise(cfg.DATA.GAUSSIAN),
-    #     ToTensor()
-    # ])
     train_transforms = ToTensor()
 
-    # val_transforms = Compose([
-    #     # utils.data_transforms.BorderCrop(cfg.CONST.SCALE),
-    #     BGR2RGB(),
-    #     # utils.data_transforms.Normalize(mean=cfg.DATA.MEAN, std=cfg.DATA.STD),
-    #     ToTensor()
-    # ])
     val_transforms = ToTensor()
 
-    train_dataset = SRDataset(json_file=args.json_file, transforms=train_transforms,
+    train_dataset = SRDataset(json_file=args.json_file, 
+                              transforms=train_transforms,
                               mode='train', data_path=args.data_path)
     val_dataset = SRDataset(json_file=args.json_file, transforms=val_transforms,
                             mode='val', data_path=args.data_path)
@@ -116,18 +102,18 @@ class SRDataset(torch.utils.data.dataset.Dataset):
             raise ValueError("Mode must be 'train' or 'val' or 'test' ")
 
         # crop fmri into short sequence
-        if mode == 'train':
-            crop = RandomCrop(size=48)
+        crop = RandomCrop(size=48)
 
         # add each subject into dataset
         for item in tqdm(file_lists[mode]):
-            id = item['id']
-            group = item['group']
-            fmri_path = os.path.join(data_path, f'{id}.npy')
+            id = item.split('.npy')[0]
+            fmri_path = os.path.join(data_path, item)
             fmri = np.load(fmri_path)
+            
+            group = 1 # dummy variable to pass in crop function
 
-            if mode == 'train':
-                [self.dataset.append((id, crop(fmri, group), group))
-                 for i in range(10)]
-            else:
-                self.dataset.append((id, fmri, group))
+
+            for i in range(10):
+                cropped_fmri = crop(fmri, group)
+                # first 36 time period to predict next 12 time period
+                self.dataset.append((id, cropped_fmri[:36, :], cropped_fmri[36:, :]))

@@ -1,0 +1,920 @@
+{
+    "train": [
+        {
+            "id": "HAR35203",
+            "group": 1
+        },
+        {
+            "id": "HAR37103",
+            "group": 1
+        },
+        {
+            "id": "HAR37203",
+            "group": 1
+        },
+        {
+            "id": "HAR37703",
+            "group": 0
+        },
+        {
+            "id": "HAR37803",
+            "group": 0
+        },
+        {
+            "id": "HAR37804",
+            "group": 0
+        },
+        {
+            "id": "HAR38103",
+            "group": 0
+        },
+        {
+            "id": "HAR38104",
+            "group": 0
+        },
+        {
+            "id": "HAR38903",
+            "group": 0
+        },
+        {
+            "id": "HAR39403",
+            "group": 1
+        },
+        {
+            "id": "HAR39903",
+            "group": 0
+        },
+        {
+            "id": "SCR70103",
+            "group": 1
+        },
+        {
+            "id": "SCR70303",
+            "group": 1
+        },
+        {
+            "id": "SCR70403",
+            "group": 1
+        },
+        {
+            "id": "SCR70503",
+            "group": 1
+        },
+        {
+            "id": "SCR71103",
+            "group": 0
+        },
+        {
+            "id": "SCR71104",
+            "group": 0
+        },
+        {
+            "id": "SCR71203",
+            "group": 1
+        },
+        {
+            "id": "SCR71303",
+            "group": 1
+        },
+        {
+            "id": "SCR71403",
+            "group": 0
+        },
+        {
+            "id": "SCR71503",
+            "group": 1
+        },
+        {
+            "id": "SCR71603",
+            "group": 1
+        },
+        {
+            "id": "SCR71903",
+            "group": 1
+        },
+        {
+            "id": "SCR72003",
+            "group": 0
+        },
+        {
+            "id": "SCR72503",
+            "group": 1
+        },
+        {
+            "id": "SCR72603",
+            "group": 1
+        },
+        {
+            "id": "SCR72803",
+            "group": 1
+        },
+        {
+            "id": "SCR72903",
+            "group": 1
+        },
+        {
+            "id": "SCR73003",
+            "group": 1
+        },
+        {
+            "id": "SCR73203",
+            "group": 1
+        },
+        {
+            "id": "SCR73604",
+            "group": 0
+        },
+        {
+            "id": "SCR73703",
+            "group": 0
+        },
+        {
+            "id": "SCR73704",
+            "group": 0
+        },
+        {
+            "id": "SCR74103",
+            "group": 0
+        },
+        {
+            "id": "SCR74104",
+            "group": 0
+        },
+        {
+            "id": "SCR74603",
+            "group": 1
+        },
+        {
+            "id": "SCR74803",
+            "group": 0
+        },
+        {
+            "id": "SCR74903",
+            "group": 1
+        },
+        {
+            "id": "SCR75003",
+            "group": 1
+        },
+        {
+            "id": "SCR75103",
+            "group": 1
+        },
+        {
+            "id": "SCR75403",
+            "group": 1
+        },
+        {
+            "id": "SCR75503",
+            "group": 1
+        },
+        {
+            "id": "SCR75603",
+            "group": 1
+        },
+        {
+            "id": "SCR76103",
+            "group": 1
+        },
+        {
+            "id": "SCR76203",
+            "group": 1
+        },
+        {
+            "id": "SCR76403",
+            "group": 1
+        },
+        {
+            "id": "SCR76503",
+            "group": 1
+        },
+        {
+            "id": "SCR77103",
+            "group": 0
+        },
+        {
+            "id": "SCR77203",
+            "group": 1
+        },
+        {
+            "id": "SCR77303",
+            "group": 0
+        },
+        {
+            "id": "SCR77403",
+            "group": 0
+        },
+        {
+            "id": "SCR77404",
+            "group": 0
+        },
+        {
+            "id": "SCR77503",
+            "group": 0
+        },
+        {
+            "id": "SCR77504",
+            "group": 0
+        },
+        {
+            "id": "SCR77603",
+            "group": 1
+        },
+        {
+            "id": "SCR77703",
+            "group": 0
+        },
+        {
+            "id": "SCR77803",
+            "group": 0
+        },
+        {
+            "id": "SCR78003",
+            "group": 0
+        },
+        {
+            "id": "SCR78004",
+            "group": 0
+        },
+        {
+            "id": "SCR78203",
+            "group": 1
+        },
+        {
+            "id": "SCR78303",
+            "group": 0
+        },
+        {
+            "id": "SCR78304",
+            "group": 0
+        },
+        {
+            "id": "SCR78305",
+            "group": 0
+        },
+        {
+            "id": "SCR78403",
+            "group": 0
+        },
+        {
+            "id": "SCR78503",
+            "group": 0
+        },
+        {
+            "id": "SCR78603",
+            "group": 0
+        },
+        {
+            "id": "SCR78703",
+            "group": 0
+        },
+        {
+            "id": "SCR78903",
+            "group": 0
+        },
+        {
+            "id": "SCR79003",
+            "group": 1
+        },
+        {
+            "id": "SCR79203",
+            "group": 0
+        },
+        {
+            "id": "SCR79303",
+            "group": 1
+        },
+        {
+            "id": "SCR79403",
+            "group": 0
+        },
+        {
+            "id": "SCR79503",
+            "group": 0
+        },
+        {
+            "id": "SCR79603",
+            "group": 0
+        },
+        {
+            "id": "SCR79703",
+            "group": 0
+        },
+        {
+            "id": "SCR79903",
+            "group": 1
+        },
+        {
+            "id": "SCR80103",
+            "group": 1
+        },
+        {
+            "id": "SCR80503",
+            "group": 1
+        },
+        {
+            "id": "SCR80703",
+            "group": 0
+        },
+        {
+            "id": "SCR80704",
+            "group": 0
+        },
+        {
+            "id": "SCR80803",
+            "group": 0
+        },
+        {
+            "id": "SCR81604",
+            "group": 0
+        },
+        {
+            "id": "SCR81605",
+            "group": 0
+        },
+        {
+            "id": "SCR81703",
+            "group": 1
+        },
+        {
+            "id": "SCR81803",
+            "group": 1
+        },
+        {
+            "id": "SCR81903",
+            "group": 1
+        },
+        {
+            "id": "SCR82003",
+            "group": 1
+        },
+        {
+            "id": "UCL50003",
+            "group": 0
+        },
+        {
+            "id": "UCL50103",
+            "group": 1
+        },
+        {
+            "id": "UCL50203",
+            "group": 1
+        },
+        {
+            "id": "UCL50303",
+            "group": 1
+        },
+        {
+            "id": "UCL50703",
+            "group": 1
+        },
+        {
+            "id": "UCL50803",
+            "group": 1
+        },
+        {
+            "id": "UCL51403",
+            "group": 0
+        },
+        {
+            "id": "UCL51503",
+            "group": 1
+        },
+        {
+            "id": "UCL51803",
+            "group": 1
+        },
+        {
+            "id": "UCL51903",
+            "group": 1
+        },
+        {
+            "id": "UCL52003",
+            "group": 1
+        },
+        {
+            "id": "UCL52203",
+            "group": 1
+        },
+        {
+            "id": "UCL52303",
+            "group": 1
+        },
+        {
+            "id": "UCL52403",
+            "group": 1
+        },
+        {
+            "id": "UCL52703",
+            "group": 1
+        },
+        {
+            "id": "UCL52704",
+            "group": 1
+        },
+        {
+            "id": "UCL53003",
+            "group": 1
+        },
+        {
+            "id": "UCL53103",
+            "group": 1
+        },
+        {
+            "id": "UCL53503",
+            "group": 1
+        },
+        {
+            "id": "UCL53703",
+            "group": 0
+        },
+        {
+            "id": "UCL53803",
+            "group": 0
+        },
+        {
+            "id": "UCL53804",
+            "group": 0
+        },
+        {
+            "id": "UCL53805",
+            "group": 0
+        },
+        {
+            "id": "UCL53903",
+            "group": 1
+        },
+        {
+            "id": "UCL54003",
+            "group": 1
+        },
+        {
+            "id": "UCL54103",
+            "group": 1
+        },
+        {
+            "id": "UCL54503",
+            "group": 1
+        },
+        {
+            "id": "UCL54603",
+            "group": 1
+        },
+        {
+            "id": "UCL54604",
+            "group": 1
+        },
+        {
+            "id": "UCL54703",
+            "group": 1
+        },
+        {
+            "id": "UCL54803",
+            "group": 1
+        },
+        {
+            "id": "UCL54903",
+            "group": 0
+        },
+        {
+            "id": "UCL55103",
+            "group": 1
+        },
+        {
+            "id": "UCL55303",
+            "group": 0
+        },
+        {
+            "id": "UCL55304",
+            "group": 0
+        },
+        {
+            "id": "UCL55403",
+            "group": 1
+        },
+        {
+            "id": "UCL55503",
+            "group": 0
+        },
+        {
+            "id": "UCL55603",
+            "group": 0
+        },
+        {
+            "id": "UCL55604",
+            "group": 0
+        },
+        {
+            "id": "UCL55703",
+            "group": 0
+        },
+        {
+            "id": "UCL55803",
+            "group": 0
+        },
+        {
+            "id": "UCL56203",
+            "group": 0
+        },
+        {
+            "id": "UCL56303",
+            "group": 0
+        },
+        {
+            "id": "UCL56404",
+            "group": 0
+        },
+        {
+            "id": "UCL56503",
+            "group": 1
+        },
+        {
+            "id": "UCL56603",
+            "group": 0
+        },
+        {
+            "id": "UCL56803",
+            "group": 1
+        },
+        {
+            "id": "UCL57003",
+            "group": 1
+        },
+        {
+            "id": "UCL57203",
+            "group": 1
+        },
+        {
+            "id": "UCL57803",
+            "group": 0
+        },
+        {
+            "id": "UCL57903",
+            "group": 0
+        },
+        {
+            "id": "UCL58103",
+            "group": 0
+        },
+        {
+            "id": "UCL58203",
+            "group": 0
+        },
+        {
+            "id": "UCL58403",
+            "group": 1
+        },
+        {
+            "id": "UCL58603",
+            "group": 1
+        },
+        {
+            "id": "UCL58803",
+            "group": 1
+        },
+        {
+            "id": "UCL58903",
+            "group": 0
+        },
+        {
+            "id": "UCL59003",
+            "group": 0
+        },
+        {
+            "id": "UCL59103",
+            "group": 0
+        },
+        {
+            "id": "UCL59203",
+            "group": 1
+        },
+        {
+            "id": "UCL59303",
+            "group": 0
+        },
+        {
+            "id": "UCL59403",
+            "group": 0
+        },
+        {
+            "id": "UCL59703",
+            "group": 0
+        },
+        {
+            "id": "UCL59704",
+            "group": 0
+        },
+        {
+            "id": "UCL59903",
+            "group": 0
+        },
+        {
+            "id": "UCL60003",
+            "group": 1
+        },
+        {
+            "id": "UCL60103",
+            "group": 0
+        },
+        {
+            "id": "UCL60403",
+            "group": 0
+        },
+        {
+            "id": "UCL60503",
+            "group": 0
+        },
+        {
+            "id": "UCL60703",
+            "group": 1
+        },
+        {
+            "id": "YAL1029503",
+            "group": 0
+        },
+        {
+            "id": "YAL10303",
+            "group": 0
+        },
+        {
+            "id": "YAL10403",
+            "group": 0
+        },
+        {
+            "id": "YAL10503",
+            "group": 0
+        },
+        {
+            "id": "YAL10603",
+            "group": 0
+        },
+        {
+            "id": "YAL11003",
+            "group": 0
+        },
+        {
+            "id": "YAL11203",
+            "group": 0
+        },
+        {
+            "id": "YAL11303",
+            "group": 0
+        },
+        {
+            "id": "YAL11304",
+            "group": 0
+        },
+        {
+            "id": "YAL11404",
+            "group": 0
+        },
+        {
+            "id": "YAL11503",
+            "group": 0
+        },
+        {
+            "id": "YAL11603",
+            "group": 0
+        },
+        {
+            "id": "YAL12203",
+            "group": 0
+        },
+        {
+            "id": "YAL12204",
+            "group": 0
+        },
+        {
+            "id": "YAL12403",
+            "group": 0
+        },
+        {
+            "id": "YAL12504",
+            "group": 0
+        },
+        {
+            "id": "YAL12603",
+            "group": 0
+        },
+        {
+            "id": "YAL12803",
+            "group": 0
+        },
+        {
+            "id": "YAL20003",
+            "group": 1
+        },
+        {
+            "id": "YAL20004",
+            "group": 1
+        },
+        {
+            "id": "YAL20203",
+            "group": 1
+        },
+        {
+            "id": "YAL20303",
+            "group": 1
+        },
+        {
+            "id": "YAL20503",
+            "group": 1
+        },
+        {
+            "id": "YAL20604",
+            "group": 1
+        },
+        {
+            "id": "YAL21403",
+            "group": 1
+        },
+        {
+            "id": "YAL21503",
+            "group": 1
+        },
+        {
+            "id": "YAL21903",
+            "group": 1
+        },
+        {
+            "id": "YAL22003",
+            "group": 1
+        }
+    ],
+    "val": [
+        {
+            "id": "YAL22103",
+            "group": 1
+        },
+        {
+            "id": "YAL22203",
+            "group": 1
+        },
+        {
+            "id": "YAL22303",
+            "group": 1
+        },
+        {
+            "id": "YAL22503",
+            "group": 1
+        },
+        {
+            "id": "YAL22603",
+            "group": 1
+        },
+        {
+            "id": "YAL22703",
+            "group": 1
+        },
+        {
+            "id": "YAL22704",
+            "group": 1
+        },
+        {
+            "id": "YAL22903",
+            "group": 1
+        },
+        {
+            "id": "YAL23104",
+            "group": 1
+        },
+        {
+            "id": "YAL23204",
+            "group": 1
+        },
+        {
+            "id": "YAL23303",
+            "group": 1
+        },
+        {
+            "id": "YAL23503",
+            "group": 1
+        },
+        {
+            "id": "YAL494503",
+            "group": 1
+        },
+        {
+            "id": "YAL795903",
+            "group": 0
+        },
+        {
+            "id": "YAL795904",
+            "group": 0
+        },
+        {
+            "id": "YAL800403",
+            "group": 0
+        },
+        {
+            "id": "YAL805104",
+            "group": 0
+        },
+        {
+            "id": "YAL810703",
+            "group": 0
+        },
+        {
+            "id": "YAL827003",
+            "group": 1
+        },
+        {
+            "id": "YAL828003",
+            "group": 0
+        }
+    ],
+    "test": [
+        {
+            "id": "HAR30303",
+            "group": 0
+        },
+        {
+            "id": "HAR30403",
+            "group": 0
+        },
+        {
+            "id": "HAR30404",
+            "group": 0
+        },
+        {
+            "id": "HAR30603",
+            "group": 0
+        },
+        {
+            "id": "HAR30604",
+            "group": 0
+        },
+        {
+            "id": "HAR30803",
+            "group": 1
+        },
+        {
+            "id": "HAR30903",
+            "group": 1
+        },
+        {
+            "id": "HAR31203",
+            "group": 0
+        },
+        {
+            "id": "HAR31303",
+            "group": 0
+        },
+        {
+            "id": "HAR31503",
+            "group": 0
+        },
+        {
+            "id": "HAR31603",
+            "group": 0
+        },
+        {
+            "id": "HAR31704",
+            "group": 1
+        },
+        {
+            "id": "HAR31903",
+            "group": 1
+        },
+        {
+            "id": "HAR32103",
+            "group": 1
+        },
+        {
+            "id": "HAR32803",
+            "group": 1
+        },
+        {
+            "id": "HAR33203",
+            "group": 1
+        },
+        {
+            "id": "HAR34503",
+            "group": 1
+        },
+        {
+            "id": "HAR34703",
+            "group": 1
+        },
+        {
+            "id": "HAR34903",
+            "group": 0
+        },
+        {
+            "id": "HAR35103",
+            "group": 1
+        },
+        {
+            "id": "HAR35104",
+            "group": 1
+        },
+        {
+            "id": "HAR35503",
+            "group": 0
+        },
+        {
+            "id": "HAR35504",
+            "group": 0
+        }
+    ]
+}
