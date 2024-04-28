@@ -1,0 +1,19 @@
+#!/bin/bash
+#SBATCH --job-name=bash
+#SBATCH --time=10:00:00
+#SBATCH --mail-type=FAIL
+#SBATCH --mail-type=END
+#SBATCH --mail-user=yinchi.zhou@yale.edu
+
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem-per-cpu=12g
+#SBATCH --partition gpu
+#SBATCH --nodes 1
+#SBATCH --gpus 1
+
+cd ~/project/multi_fmri/pretrain
+module load miniconda
+conda activate multi_fmri
+
+bash runExp.sh

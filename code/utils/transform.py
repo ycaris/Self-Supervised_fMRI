@@ -143,16 +143,16 @@ class RandomCrop(object):
         time = np.shape(fmri)[0]
         t_start = random.randint(0, time - self.size)
         t_end = t_start + self.size
-        fmri = fmri[t_start:t_end, :]
+        fmri_crop = fmri[t_start:t_end, :]
 
-        return fmri
+        return fmri_crop
 
 
 class ToTensor(object):
     """Concert time series fmri points from numpy to torch tensor"""
 
     def __call__(self, fmri, group):
-        assert (isinstance(fmri, np.ndarray))
+        # assert (isinstance(fmri, np.ndarray))
         fmri = torch.tensor(fmri, dtype=torch.float32)
         group = torch.tensor(group, dtype=torch.float32)
         return fmri, group

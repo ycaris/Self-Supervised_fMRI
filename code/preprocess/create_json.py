@@ -2,6 +2,7 @@ import json
 import numpy as np
 import scipy.io
 from sklearn.model_selection import StratifiedKFold
+import random
 
 # Load your MATLAB file
 mat = scipy.io.loadmat(
@@ -12,9 +13,15 @@ mat = scipy.io.loadmat(
 subject_ids = mat['ids'].squeeze()
 labels = mat['group'].squeeze()
 
-print(subject_ids[0][0], labels)
+pair = list(zip(subject_ids, labels))
+random.shuffle(pair)
+subject_ids_shuffled, labels_shuffled = zip(* pair)
+subject_ids = subject_ids_shuffled
+labels = labels_shuffled
+
+
 # Initialize StratifiedKFold
-skf = StratifiedKFold(n_splits=10)
+skf = StratifiedKFold(n_splits=10, shuffle=True)
 
 # Create and save JSON files for each fold
 for i, (train_index, test_index) in enumerate(skf.split(subject_ids, labels)):
@@ -31,7 +38,7 @@ for i, (train_index, test_index) in enumerate(skf.split(subject_ids, labels)):
         'test': test_ids_labels
     }
 
-    with open(f'../json_files/fold_{i+1}_points.json', 'w') as file:
+    with open(f'/home/yz2337/project/multi_fmri/code/json_files/fmri_only/fold_{i+1}_points.json', 'w') as file:
         json.dump(fold_data, file, indent=4)
 
 # # This script will create 10 JSON files named 'fold_1.json', 'fold_2.json', ..., 'fold_10.json'

@@ -4,6 +4,7 @@ import numpy as np
 from tqdm import tqdm
 from apex import amp
 import warnings
+from utils import data_util
 
 
 def save_ckp(state, checkpoint_dir):
@@ -13,7 +14,8 @@ def save_ckp(state, checkpoint_dir):
 def validation(model, loss_function, epoch_iterator_val, device):
     model.eval()
 
-    correct = 0
+    correct_sub = 0
+    seq_acc_sum = 0
     total = 0
     total_loss = 0
 
@@ -22,6 +24,10 @@ def validation(model, loss_function, epoch_iterator_val, device):
             # get model output
             ids, x, y = (batch['id'], batch['x'].to(
                 device), batch['y'].to(device))
+
+            x = x.squeeze(0)  # put slided time windows as batch dimension
+            y_true = y.item()
+            y = y.expand(x.size(0))
 
             logit_map = model(x, device).squeeze(1)
 
@@ -32,22 +38,36 @@ def validation(model, loss_function, epoch_iterator_val, device):
             epoch_iterator_val.set_description(
                 "Validation loss %2.5f " % (loss))
 
-            # calculate if the classification is correct
-            y_pred = torch.round(torch.sigmoid(logit_map))
-            total += y.size(0)
-            correct += (y_pred == y).sum().item()
+            # calculate sequence accuracy
+            seq_pred = torch.round(torch.sigmoid(logit_map))
+            seq_acc = torch.eq(seq_pred, y).float().mean().item()
+            seq_acc_sum += seq_acc
 
-    acc = correct/total
-    avg_loss = total_loss / total
+            # calculate subject accuracy
+            sub_pred = 1 if torch.sum(
+                seq_pred == 1) > torch.sum(seq_pred == 0) else 0
+            correct_sub += (sub_pred == y_true)
 
-    return acc, avg_loss
+            total += 1
+
+    seq_acc = seq_acc_sum / total       # sequence acc
+    avg_loss = total_loss / total  # sequence loss
+    sub_acc = correct_sub / total
+
+    return seq_acc, avg_loss, sub_acc
 
 
-def train(model, train_loader, val_loader, loss_function, scheduler, optimizer, device, writer, global_step, args):
+# def train(model, train_loader, val_loader, loss_function, scheduler, optimizer, device, writer, global_step, args):
+def train(model, val_loader, loss_function, scheduler, optimizer, device, writer, global_step, args):
 
     val_loss_best = 10000
 
     while global_step < args.num_steps:
+
+        # get a new train loader each epoch to crop different samples
+        train_loader = data_util.get_train_loader(args)
+        print(
+            f'{len(train_loader)} subjects for training, {len(val_loader)} subjects for testing')
 
         model.train()
         epoch_iterator = tqdm(
@@ -61,10 +81,12 @@ def train(model, train_loader, val_loader, loss_function, scheduler, optimizer, 
                 device), batch['y'].to(device))
 
             # change out size [4,1] to [4,]
+
             logit_map = model(x, device).squeeze(1)
 
             # BCE loss
             loss = loss_function(logit_map, y)
+            loss_sum += loss
 
             # if args.amp:
             #     with amp.scale_loss(loss, optimizer) as scaled_loss:
@@ -75,12 +97,15 @@ def train(model, train_loader, val_loader, loss_function, scheduler, optimizer, 
             #     loss.backward()
 
             loss.backward()
+            # clip norm
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+
             optimizer.step()
+            optimizer.zero_grad()
 
             if args.lrdecay:
                 scheduler.step()
 
-            optimizer.zero_grad()
             epoch_iterator.set_description(
                 "Training (%d / %d Steps) (loss=%2.5f)" % (global_step, args.num_steps, loss))
 
@@ -98,11 +123,13 @@ def train(model, train_loader, val_loader, loss_function, scheduler, optimizer, 
             if global_step % args.eval_num == 0 and global_step != 0:
                 epoch_iterator_val = tqdm(
                     val_loader, desc="Validation accuracy X.X, Validation loss X.X ", dynamic_ncols=True)
-                acc, val_loss = validation(
+                seq_acc, val_loss, sub_acc = validation(
                     model, loss_function, epoch_iterator_val, device)
 
-                writer.add_scalar("Validation Accuracy",
-                                  scalar_value=acc, global_step=global_step)
+                writer.add_scalar("Validation Sequence Accuracy",
+                                  scalar_value=seq_acc, global_step=global_step)
+                writer.add_scalar("Validation Subject Accuracy",
+                                  scalar_value=seq_acc, global_step=global_step)
                 writer.add_scalar("Validation Loss",
                                   scalar_value=val_loss, global_step=global_step)
 
@@ -111,10 +138,11 @@ def train(model, train_loader, val_loader, loss_function, scheduler, optimizer, 
                                   'optimizer': optimizer.state_dict()}
                     save_ckp(checkpoint, args.savepath + '/model.pt')
                     val_loss_best = val_loss
-                    print('Model Was Saved ! Current Best Validation Loss: {}  Current Loss {}  Current ACC: {}'.format(
-                        val_loss_best, val_loss, acc))
+                    print('Model Was Saved ! Current Best Validation Loss: {}  Current Loss {}  Current Sub ACC: {} Current Sequence ACC {}'.format(
+                        val_loss_best, val_loss, sub_acc, seq_acc))
                 else:
-                    print('Model Was NOT Saved ! Current Best Validation Loss: {}  Current Loss {}  Current ACC: {}'.format(
-                        val_loss_best, val_loss, acc))
+                    print('Model Was NOT Saved ! Current Best Validation Loss: {}  Current Loss {}  Current Sub ACC: {} Current Sequence ACC {}'.format(
+                        val_loss_best, val_loss, sub_acc, seq_acc))
+                model.train()
 
     return global_step, val_loss_best

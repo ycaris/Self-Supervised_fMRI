@@ -17,7 +17,7 @@ class BolT(nn.Module):
         super().__init__()
 
         dim = hyperParams.dim
-        nOfClasses = details.nOfClasses
+        nOfClasses = 1
 
         self.hyperParams = hyperParams
 

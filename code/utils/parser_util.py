@@ -16,7 +16,8 @@ def set_seed(seed=0):
     torch.manual_seed(seed)
 
 
-MODEL_ARCH = ['swin-transformer', 'simple-transformer', 'transformer']
+MODEL_ARCH = ['swin-transformer', 'simple-transformer',
+              'simple-transformer-classify', 'lstm', 'whole-transformer', 'whole-transformer-classify']
 
 
 def prepare_parser():
@@ -40,7 +41,8 @@ def prepare_parser():
                         type=str,
                         help='directory to save exp results')
     parser.add_argument('--data_path',
-                        default='/home/yz2337/project/multi_fmri/data/biopoint',
+                        # default='/home/yz2337/project/multi_fmri/data/biopoint',
+                        default='/home/yz2337/project/multi_fmri/data/ABIDE/numpy_norm',
                         type=str,
                         help='directory to find biopoint numpy')
     parser.add_argument('--eval_num',
@@ -61,7 +63,7 @@ def prepare_parser():
 
 # data augmentation
     parser.add_argument('--time_period',
-                        default=48,
+                        default=64,
                         type=int,
                         help='the time period that is used for cropping fmri data')
 
@@ -71,13 +73,13 @@ def prepare_parser():
                         default=116,
                         type=int)
     parser.add_argument('--emb_dim',
-                        default=1024,
+                        default=512,
                         type=int)
     parser.add_argument('--n_layers',
-                        default=3,
+                        default=2,
                         type=int)
     parser.add_argument('--dropout',
-                        default=0.3,
+                        default=0.1,
                         type=int)
     parser.add_argument('--nhead',
                         default=4,

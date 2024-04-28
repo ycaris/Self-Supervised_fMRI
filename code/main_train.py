@@ -6,7 +6,9 @@ from torch.utils.data import DataLoader
 from tensorboardX import SummaryWriter
 from optimizer.lr_scheduler import WarmupCosineSchedule
 from models.swin_transformer import SwinTransformerV2
-from models.simple_transformer import SimpleTransformer
+from models.simple_transformer import SimpleTransformerClassification
+from models.whole_transformer import WholeTransformerClassification
+from models.lstm import LSTMClassifier
 from utils import data_util, parser_util
 from train import train, save_ckp
 
@@ -33,21 +35,42 @@ def main(args):
                                   drop_rate=0., attn_drop_rate=0., drop_path_rate=0.1,
                                   norm_layer=nn.LayerNorm, ape=False, patch_norm=True,
                                   use_checkpoint=False, pretrained_window_sizes=[0, 0, 0, 0]).to(device)
-    elif args.model_arch == 'simple-transformer':
-        model = SimpleTransformer(feature_size=args.feature_size,
-                                  emb_dim=args.emb_dim,
-                                  nhead=args.nhead,
-                                  num_layers=args.n_layers,
-                                  dropout=args.dropout,
-                                  ).to(device)
+    elif args.model_arch == 'simple-transformer-classify':
+        model = SimpleTransformerClassification(feature_size=args.feature_size,
+                                                emb_dim=args.emb_dim,
+                                                nhead=args.nhead,
+                                                num_layers=args.n_layers,
+                                                dropout=args.dropout,
+                                                ).to(device)
+    elif args.model_arch == 'whole-transformer-classify':
+        model = WholeTransformerClassification(feature_size=args.feature_size,
+                                               emb_dim=args.emb_dim,
+                                               nhead=args.nhead,
+                                               num_layers=args.n_layers,
+                                               dropout=args.dropout,
+                                               ).to(device)
+    elif args.model_arch == 'lstm':
+        model = LSTMClassifier(feature_size=args.feature_size,
+                               emb_dim=args.emb_dim,
+                               num_layers=args.n_layers,
+                               dropout=args.dropout,
+                               ).to(device)
     else:
         raise RuntimeError('Wrong dataset or model_arch parameter setting.')
 
     # load pretrained weights
     if args.use_pretrained:
-        args.pretrain_dir = ''
-        model.load_from(weights=torch.load(args.pretrained_dir))
+        args.pretrained_dir = '/home/yz2337/project/multi_fmri/pretrain/runs/percentage/v3_mlp_whole_64_sm/model.pt'
+        model.load_from(torch.load(args.pretrained_dir)['state_dict'])
         print('Use pretrained weights')
+
+        # freeze the parameters
+
+        for param in model.parameters():
+            param.requires_grad = False  # Freeze all parameters first
+
+        for param in model.decoder.parameters():
+            param.requires_grad = True  # Ensure the decoder is trainable
 
     model.to(device)
     num_params = count_parameters(model)
@@ -75,18 +98,23 @@ def main(args):
     if args.lrdecay:
         scheduler = WarmupCosineSchedule(
             optimizer, warmup_steps=args.warmup_steps, t_total=args.num_steps)
+        # scheduler = torch.optim.lr_scheduler.StepLR(
+        #     optimizer, step_size=100, gamma=0.8)
 
     # define tensorboard writer
     writer = SummaryWriter(logdir=args.savepath)
 
-    train_loader, val_loader = data_util.get_loader(args)
-    print(f'{len(train_loader)} subjects for training, {len(val_loader)} subjects for testing')
+    # train_loader = data_util.get_train_loader(args)
+    val_loader = data_util.get_val_loader(args)
+    # print(f'{len(train_loader)} subjects for training, {len(val_loader)} subjects for testing')
 
     loss_function = torch.nn.BCEWithLogitsLoss()  # L1 loss
 
     global_step = 1
 
-    global_step, val_best = train(model, train_loader, val_loader, loss_function,
+    # global_step, val_best = train(model, train_loader, val_loader, loss_function,
+    #   scheduler, optimizer, device, writer, global_step, args)
+    global_step, val_best = train(model, val_loader, loss_function,
                                   scheduler, optimizer, device, writer, global_step, args)
 
     checkpoint = {'global_step': global_step, 'state_dict': model.state_dict(

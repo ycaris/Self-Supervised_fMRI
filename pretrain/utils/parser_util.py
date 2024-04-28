@@ -16,7 +16,8 @@ def set_seed(seed=0):
     torch.manual_seed(seed)
 
 
-MODEL_ARCH = ['swin-transformer', 'simple-transformer', 'transformer']
+MODEL_ARCH = ['swin-transformer', 'simple-transformer',
+              'simple-transformer-classify', 'whole-transformer', 'whole-transformer-classify']
 
 
 def prepare_parser():
@@ -40,7 +41,7 @@ def prepare_parser():
                         type=str,
                         help='directory to save exp results')
     parser.add_argument('--data_path',
-                        default='/home/yz2337/project/multi_fmri/data/biopoint',
+                        default='/home/yz2337/project/multi_fmri/data/ABIDE/numpy_norm',
                         type=str,
                         help='directory to find biopoint numpy')
     parser.add_argument('--eval_num',
@@ -61,7 +62,7 @@ def prepare_parser():
 
 # data augmentation
     parser.add_argument('--time_period',
-                        default=48,
+                        default=64,
                         type=int,
                         help='the time period that is used for cropping fmri data')
 
@@ -71,16 +72,16 @@ def prepare_parser():
                         default=116,
                         type=int)
     parser.add_argument('--emb_dim',
-                        default=1024,
+                        default=512,  # large 1024, 512
                         type=int)
     parser.add_argument('--n_layers',
-                        default=3,
+                        default=6,  # large 6, small 4
                         type=int)
     parser.add_argument('--dropout',
-                        default=0.3,
+                        default=0.1,
                         type=int)
     parser.add_argument('--nhead',
-                        default=4,
+                        default=8,  # large 8, small 4
                         type=int)
 
 # Training parameters
@@ -90,10 +91,6 @@ def prepare_parser():
                         default=8,
                         type=int,
                         help='batch size on each client')
-    parser.add_argument('--n_minibatch',
-                        default=50,
-                        type=int,
-                        help='the number of minibatch size in SCAFFOLD')
     parser.add_argument('--opt',
                         default='adam',
                         type=str,
@@ -113,7 +110,7 @@ def prepare_parser():
     parser.add_argument('--lrdecay',
                         action='store_true')
     parser.add_argument('--warmup_steps',
-                        default=0,
+                        default=500,
                         type=int)
     parser.add_argument('--sch_gamma',
                         default=1.0,
@@ -124,13 +121,16 @@ def prepare_parser():
     parser.add_argument('--opt_level',
                         default='O2',
                         type=str)
+    parser.add_argument('--amp_scale',
+                        action='store_true')
+    parser.add_argument('--max_grad_norm',
+                        default=1.0,
+                        type=float)
     parser.add_argument('--use_pretrained',
                         action='store_true')
     parser.add_argument('--pretrain_dir',
                         default=None,
                         type=str)
-    parser.add_argument('--amp_scale',
-                        action='store_true')
 
     # Model Parameter
     # parser.add_argument('--num_heads', default=16, type=int)

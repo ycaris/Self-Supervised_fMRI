@@ -5,67 +5,122 @@ import math
 
 class SimpleTransformer(nn.Module):
     # d_model : number of features
-    def __init__(self, feature_size=116, emb_dim=512, num_layers=6, dropout=0.1, nhead=4):
+    def __init__(self, feature_size=116, emb_dim=1024, num_layers=6, dropout=0.1, nhead=4, time_period=48):
         super(SimpleTransformer, self).__init__()
 
         self.embedding = nn.Linear(feature_size, emb_dim)
+        self.emb_dim = emb_dim
+        # transformer encoder
         self.encoder_layer = nn.TransformerEncoderLayer(
-            d_model=emb_dim, nhead=nhead, dropout=dropout, batch_first=True)
+            d_model=emb_dim, dim_feedforward=2048, nhead=nhead, dropout=dropout, batch_first=True)
         self.transformer_encoder = nn.TransformerEncoder(
             self.encoder_layer, num_layers=num_layers)
         self.pos_encoder = PositionalEncoding(
-            max_position=154+1, emb_dim=emb_dim, dropout=dropout)  # longest time point
+            max_position=154, emb_dim=emb_dim, dropout=dropout)  # longest time point
+
         self.decoder = nn.Sequential(
-            nn.Linear(emb_dim, 128),
+            nn.Linear(emb_dim, 256),  # 512, 256, 128
             nn.ReLU(),
-            nn.Linear(128, 1))
-        self.emb_dim = emb_dim
-        self.cls_token = nn.Parameter(torch.zeros(1, 1, emb_dim))
-        # self.init_weights()
+            nn.Linear(256, feature_size))
+        # self.cls_token = nn.Parameter(torch.zeros(1, 1, emb_dim))
+        self.init_weights()
 
-    # def init_weights(self):
-    #     initrange = 0.1
-    #     self.decoder.bias.data.zero_()
-    #     self.decoder.weight.data.uniform_(-initrange, initrange)
-
-    def _generate_square_subsequent_mask(self, sz):
-        mask = (torch.triu(torch.ones(sz, sz)) == 1).transpose(0, 1)
-        mask = mask.float().masked_fill(mask == 0, float(
-            '-inf')).masked_fill(mask == 1, float(0.0))
-        mask[:, 0] = 0.0  # make sure the classification token won't be masked out
-        return mask
+    def init_weights(self):
+        initrange = 0.1
+        for layer in self.decoder:
+            if isinstance(layer, nn.Linear):
+                layer.bias.data.zero_()
+                layer.weight.data.uniform_(-initrange, initrange)
 
     def forward(self, src, device):
 
         batch_size, seq_len, _ = src.size()
 
         # get classication token
-        cls_token = self.cls_token.expand(batch_size, -1, -1)
+        # cls_token = self.cls_token.expand(batch_size, -1, -1)
 
         # position enconding of x
         src = self.embedding(src) * math.sqrt(self.emb_dim)
-        src = torch.cat((cls_token, src), dim=1)
         src = self.pos_encoder(src, device)
+        # src = torch.cat((cls_token, src), dim=1)
 
-        mask = self._generate_square_subsequent_mask(seq_len).to(device)
         output = self.transformer_encoder(src)
 
-        # # global pooling for transformer
-        # output = output.mean(dim=1)
-        # output = self.decoder(output)
-
-        # classification token for output
-        output = output[:, 0]
+        # global pooling for transformer
+        # output = output[:, 1:]
         output = self.decoder(output)
 
         return output
+
+
+class SimpleTransformerClassification(nn.Module):
+    # d_model : number of features
+    def __init__(self, feature_size=116, emb_dim=512, num_layers=6, dropout=0.1, nhead=4):
+        super(SimpleTransformerClassification, self).__init__()
+
+        self.embedding = nn.Linear(feature_size, emb_dim)
+        self.encoder_layer = nn.TransformerEncoderLayer(
+            d_model=emb_dim, dim_feedforward=1024, nhead=nhead, dropout=dropout, batch_first=True)
+        self.transformer_encoder = nn.TransformerEncoder(
+            self.encoder_layer, num_layers=num_layers)
+        self.pos_encoder = PositionalEncoding(
+            max_position=154+1, emb_dim=emb_dim, dropout=dropout)  # longest time point
+        # self.cls_token = nn.Parameter(torch.zeros(1, 1, emb_dim))
+        self.decoder = nn.Sequential(
+            nn.Linear(emb_dim, 128),
+            nn.ReLU(),
+            nn.Linear(128, 1))
+        self.emb_dim = emb_dim
+        self.dropout = nn.Dropout(dropout)
+        self.init_weights()
+
+    def init_weights(self):
+        initrange = 0.1
+        for layer in self.decoder:
+            if isinstance(layer, nn.Linear):
+                layer.bias.data.zero_()
+                layer.weight.data.uniform_(-initrange, initrange)
+
+    def forward(self, src, device):
+
+        batch_size, seq_len, _ = src.size()
+
+        # get classication token
+        # cls_token = self.cls_token.expand(batch_size, -1, -1)
+
+        # position enconding of x
+        src = self.embedding(src) * math.sqrt(self.emb_dim)
+        # src = torch.cat((cls_token, src), dim=1)
+        src = self.pos_encoder(src, device)
+
+        output = self.transformer_encoder(src)
+
+        # classification token for output
+        # output = output[:, 0]
+        output = self.decoder(output)
+        output = self.dropout(output)
+        output = output.mean(dim=1)
+
+        return output
+
+    def load_from(self, state_dict):
+        print('loading parameters onto new model...')
+        own_state = self.state_dict()
+        for name, param in state_dict.items():
+            if 'decoder' in name:
+                print("skip decoder")
+                continue
+            if name in own_state and param.size() == own_state[name].size():
+                # If the parameter exists in the pretrained model and sizes match, use the pretrained weight
+                param = param.data
+                own_state[name].copy_(param)
 
 
 # Positional Encoding to inject some information about the relative or absolute position of the tokens in the sequence.
 # Use absolute encoding here
 
 class PositionalEncoding(nn.Module):
-    def __init__(self, max_position=154, emb_dim=1024, dropout=0.1):
+    def __init__(self, max_position=154, emb_dim=2048, dropout=0.1):
         super(PositionalEncoding, self).__init__()
 
         self.dropout = nn.Dropout(dropout)

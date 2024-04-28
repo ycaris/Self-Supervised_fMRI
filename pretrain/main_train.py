@@ -4,9 +4,10 @@ from torch import nn
 from apex import amp
 from torch.utils.data import DataLoader
 from tensorboardX import SummaryWriter
-from optimizer.lr_scheduler import WarmupCosineSchedule
+from optimizer.lr_scheduler import WarmupCosineSchedule, LinearLR
 from models.swin_transformer import SwinTransformerV2
 from models.simple_transformer import SimpleTransformer
+from models.whole_transformer import WholeTransformer
 from utils import data_util, parser_util
 from train import train, save_ckp
 
@@ -39,15 +40,32 @@ def main(args):
                                   nhead=args.nhead,
                                   num_layers=args.n_layers,
                                   dropout=args.dropout,
+                                  time_period=args.time_period
                                   ).to(device)
+    elif args.model_arch == 'whole-transformer':
+        model = WholeTransformer(feature_size=args.feature_size,
+                                 emb_dim=args.emb_dim,
+                                 nhead=args.nhead,
+                                 num_layers=args.n_layers,
+                                 dropout=args.dropout,
+                                 time_period=args.time_period
+                                 ).to(device)
     else:
         raise RuntimeError('Wrong dataset or model_arch parameter setting.')
 
     # load pretrained weights
     if args.use_pretrained:
-        args.pretrain_dir = ''
+        args.pretrain_dir = '/home/yz2337/project/multi_fmri/pretrain/runs/pretrain/v1_pool/model.pt'
         model.load_from(weights=torch.load(args.pretrained_dir))
         print('Use pretrained weights')
+
+        # freeze encoder and unfreeze decoder
+        for param in model.parameters():
+            param.requires_grad = False  # Freeze all pretrained parameters
+
+        # Unfreeze the classification layers (newly replaced decoder)
+        for param in model.decoder.parameters():
+            param.requires_grad = True
 
     model.to(device)
     num_params = count_parameters(model)
@@ -75,18 +93,22 @@ def main(args):
     if args.lrdecay:
         scheduler = WarmupCosineSchedule(
             optimizer, warmup_steps=args.warmup_steps, t_total=args.num_steps)
+        # scheduler = LinearLR(optimizer, end_lr=1e-5, num_iter=3000)
 
     # define tensorboard writer
     writer = SummaryWriter(logdir=args.savepath)
 
-    train_loader, val_loader = data_util.get_loader(args)
-    print(f'{len(train_loader)} subjects for training, {len(val_loader)} subjects for testing')
+    # train_loader = data_util.get_train_loader(args)
+    val_loader = data_util.get_val_loader(args)
+    # print(f'{len(train_loader)} subjects for training, {len(val_loader)} subjects for testing')
 
-    loss_function = torch.nn.BCEWithLogitsLoss()  # L1 loss
+    loss_function = torch.nn.MSELoss()  # L1 loss
 
     global_step = 1
 
-    global_step, val_best = train(model, train_loader, val_loader, loss_function,
+    # global_step, val_best = train(model, train_loader, val_loader, loss_function,
+    #                               scheduler, optimizer, device, writer, global_step, args)
+    global_step, val_best = train(model, val_loader, loss_function,
                                   scheduler, optimizer, device, writer, global_step, args)
 
     checkpoint = {'global_step': global_step, 'state_dict': model.state_dict(
