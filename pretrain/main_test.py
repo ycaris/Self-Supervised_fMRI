@@ -16,15 +16,16 @@ import torch.nn.functional as F
 
 
 # testing parameter
-version = 'v3_mlp_whole_64_sm'
+fold = 'fold5'
+version = 'v5_mlp_masktime'
 parser = parser_util.prepare_parser()
 parser_util.set_seed(0)
 parser.add_argument('--version', default=f'{version}', type=str)
 parser.add_argument('--checkpoint_path',
-                    default=f'/home/yz2337/project/multi_fmri/pretrain/runs/percentage/v3_mlp_whole_64_sm/model.pt', type=str)
+                    default=f'/home/yz2337/project/multi_fmri/pretrain/runs/percentage_cv/{fold}/{version}/model_50000.pt', type=str)
 args = parser.parse_args()
 torch.backends.cudnn.benchmark = True
-args.json_file = f'/home/yz2337/project/multi_fmri/code/json_files/pretrained/abide_group.json'
+args.json_file = f'/home/yz2337/project/multi_fmri/code/json_files/pretrained/abide_group_{fold}.json'
 
 # specify the GPU id's, GPU id's start from 0.
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -32,7 +33,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 # -----------------------------------------------------------------
 
 # set the output saving folder
-save_dir = f'/home/yz2337/project/multi_fmri/pretrain/output/{version}'
+save_dir = f'/home/yz2337/project/multi_fmri/pretrain/output/cv/{fold}/{version}'
 if not os.path.exists(save_dir):
     os.makedirs(save_dir)
 

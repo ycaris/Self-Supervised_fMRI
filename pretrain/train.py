@@ -137,18 +137,22 @@ def train(model, val_loader, loss_function, scheduler, optimizer, device, writer
                 writer.add_scalar("Last time point Loss",
                                   scalar_value=val_loss_last, global_step=global_step)
 
-                if val_loss < val_loss_best:
-                    checkpoint = {'global_step': global_step, 'state_dict': model.state_dict(),
-                                  'optimizer': optimizer.state_dict()}
-                    save_ckp(checkpoint, args.savepath + '/model.pt')
-                    val_loss_best = val_loss
-                    print('Model Was Saved ! Current Best Validation Loss: {}  Current Loss {} '.format(
-                        val_loss_best, val_loss))
-                else:
-                    print('Model Was NOT Saved ! Current Best Validation Loss: {}  Current Loss {}'.format(
-                        val_loss_best, val_loss))
+                # if val_loss < val_loss_best:
+                #     checkpoint = {'global_step': global_step, 'state_dict': model.state_dict(),
+                #                   'optimizer': optimizer.state_dict()}
+                #     save_ckp(checkpoint, args.savepath + '/model.pt')
+                #     val_loss_best = val_loss
+                #     print('Model Was Saved ! Current Best Validation Loss: {}  Current Loss {} '.format(
+                #         val_loss_best, val_loss))
+                # else:
+                #     print('Model Was NOT Saved ! Current Best Validation Loss: {}  Current Loss {}'.format(
+                #         val_loss_best, val_loss))
+                print('Current Best Validation Loss: {}  Current Loss {} '.format(
+                    val_loss_best, val_loss))
 
-            if global_step % 5000 == 0:
+            if global_step % 10000 == 0:
+                checkpoint = {'global_step': global_step, 'state_dict': model.state_dict(),
+                              'optimizer': optimizer.state_dict()}
                 print(f'Model Was Saved on {global_step}!')
                 save_ckp(checkpoint, args.savepath +
                          f'/model_{global_step}.pt')

@@ -129,7 +129,7 @@ class SRDataset(torch.utils.data.dataset.Dataset):
         # crop = RandomCrop(size=time_period+1)
         crop = RandomCrop(size=time_period)
         # futureMask = FutureMask(mask_size=16)
-        randomMask = RandomMaskTime()
+        randomMask = RandomMaskROI()
 
         for item in tqdm(file_lists[mode]):
 
@@ -142,7 +142,6 @@ class SRDataset(torch.utils.data.dataset.Dataset):
 
             group = 1  # dummy variable to pass in crop function
 
-            
             # 0-64 predict 1-65
             # if mode == 'train':
             #     x_shape = fmri.shape[0]
@@ -156,10 +155,7 @@ class SRDataset(torch.utils.data.dataset.Dataset):
             #         cropped_fmri = crop(fmri, group)
             #         self.dataset.append(
             #             (id, cropped_fmri[:time_period, :], cropped_fmri[1:time_period+1, :]))
-            
-            
-            
-            
+
             if mode == 'train':
                 for i in range(10):
                     cropped_fmri = crop(fmri, group)
@@ -172,4 +168,3 @@ class SRDataset(torch.utils.data.dataset.Dataset):
                     masked_fmri = randomMask(cropped_fmri)
                     # masked_fmri = futureMask(cropped_fmri)
                     self.dataset.append((id, masked_fmri, cropped_fmri))
-            

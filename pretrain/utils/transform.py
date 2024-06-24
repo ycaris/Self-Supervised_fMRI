@@ -146,6 +146,7 @@ class RandomCrop(object):
         fmri = fmri[t_start:t_end, :]
         return fmri
 
+
 class FutureMask(object):
     def __init__(self, mask_size):
         self.mask_size = mask_size
@@ -154,67 +155,71 @@ class FutureMask(object):
 
         masked_fmri = fmri.copy()
         start_index = np.shape(fmri)[0] - self.mask_size
-        masked_fmri[start_index:, :] = 0  
+        masked_fmri[start_index:, :] = 0
         return masked_fmri
 
+
 class RandomMask(object):
-    
+
     def __call__(self, fmri):
-        
+
         p = random.random()
         mask_ratio = 0.25 if p < 0.5 else 0.5
 
         masked_fmri = fmri.copy()
         total_elements = fmri.shape[0] * fmri.shape[1]
         num_to_mask = int(np.floor(mask_ratio * total_elements))
-        
+
         # generate random row and column indices
         rows, cols = fmri.shape
         mask_rows = np.random.choice(rows, num_to_mask, replace=True)
         mask_cols = np.random.choice(cols, num_to_mask, replace=True)
-        
+
         # Apply the mask to the randomly selected indices
         for row, col in zip(mask_rows, mask_cols):
-            masked_fmri[row, col] = 0 
-        
+            masked_fmri[row, col] = 0
+
         return masked_fmri
+
 
 class RandomMaskROI(object):
     def __call__(self, fmri):
-        
+
         p = random.random()
         mask_ratio = 0.25 if p < 0.5 else 0.5
 
         masked_fmri = fmri.copy()
         num_to_mask = int(np.floor(mask_ratio * fmri.shape[1]))
-        
+
         # generate random row and column indices
         rows, cols = fmri.shape
         mask_cols = np.random.choice(cols, num_to_mask, replace=True)
-        
+
         # Apply the mask to the randomly selected indices
-        masked_fmri[:, mask_cols] = 0 
-        
+        masked_fmri[:, mask_cols] = 0
+
         return masked_fmri
+
 
 class RandomMaskTime(object):
     def __call__(self, fmri):
-        
+
         p = random.random()
         mask_ratio = 0.25 if p < 0.5 else 0.5
 
         masked_fmri = fmri.copy()
         num_to_mask = int(np.floor(mask_ratio * fmri.shape[0]))
-        
+
         # generate random row and column indices
         rows, cols = fmri.shape
         mask_rows = np.random.choice(rows, num_to_mask, replace=True)
-        
+
         # Apply the mask to the randomly selected indices
-        masked_fmri[mask_rows, :] = 0 
-        
+        masked_fmri[mask_rows, :] = 0
+
         return masked_fmri
-    
+
+
 class ToTensor(object):
     """Concert time series fmri points from numpy to torch tensor"""
 
