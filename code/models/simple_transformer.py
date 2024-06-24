@@ -12,18 +12,20 @@ class SimpleTransformer(nn.Module):
         self.emb_dim = emb_dim
         # transformer encoder
         self.encoder_layer = nn.TransformerEncoderLayer(
-            d_model=emb_dim, dim_feedforward=2048, nhead=nhead, dropout=dropout, batch_first=True)
+            d_model=emb_dim, dim_feedforward=1024, nhead=nhead, dropout=dropout, batch_first=True)
         self.transformer_encoder = nn.TransformerEncoder(
             self.encoder_layer, num_layers=num_layers)
         self.pos_encoder = PositionalEncoding(
             max_position=154, emb_dim=emb_dim, dropout=dropout)  # longest time point
 
         self.decoder = nn.Sequential(
-            nn.Linear(emb_dim, 256),  # 512, 256, 128
+            nn.Linear(emb_dim, 32),  # 512, 256, 128
             nn.ReLU(),
-            nn.Linear(256, feature_size))
+            nn.Dropout(0.3),
+            nn.Linear(32, 1))
         # self.cls_token = nn.Parameter(torch.zeros(1, 1, emb_dim))
         self.init_weights()
+        self.dropout = nn.Dropout(dropout)
 
     def init_weights(self):
         initrange = 0.1
@@ -49,8 +51,21 @@ class SimpleTransformer(nn.Module):
         # global pooling for transformer
         # output = output[:, 1:]
         output = self.decoder(output)
-
+        output = self.dropout(output)
+        output = output.mean(dim=1)
         return output
+
+    def load_from(self, state_dict):
+        print('loading parameters onto new model...')
+        own_state = self.state_dict()
+        for name, param in state_dict.items():
+            if 'decoder' in name:
+                print("skip decoder")
+                continue
+            if name in own_state and param.size() == own_state[name].size():
+                # If the parameter exists in the pretrained model and sizes match, use the pretrained weight
+                param = param. data
+                own_state[name].copy_(param)
 
 
 class SimpleTransformerClassification(nn.Module):
@@ -60,16 +75,17 @@ class SimpleTransformerClassification(nn.Module):
 
         self.embedding = nn.Linear(feature_size, emb_dim)
         self.encoder_layer = nn.TransformerEncoderLayer(
-            d_model=emb_dim, dim_feedforward=1024, nhead=nhead, dropout=dropout, batch_first=True)
+            d_model=emb_dim, dim_feedforward=2048, nhead=nhead, dropout=dropout, batch_first=True)
         self.transformer_encoder = nn.TransformerEncoder(
             self.encoder_layer, num_layers=num_layers)
         self.pos_encoder = PositionalEncoding(
-            max_position=154+1, emb_dim=emb_dim, dropout=dropout)  # longest time point
+            max_position=154+1, emb_dim=emb_dim, dropout=0.1)  # longest time point
         # self.cls_token = nn.Parameter(torch.zeros(1, 1, emb_dim))
         self.decoder = nn.Sequential(
-            nn.Linear(emb_dim, 128),
+            nn.Linear(emb_dim, 16),
             nn.ReLU(),
-            nn.Linear(128, 1))
+            # nn.Dropout(dropout),
+            nn.Linear(16, 1))
         self.emb_dim = emb_dim
         self.dropout = nn.Dropout(dropout)
         self.init_weights()
@@ -99,8 +115,7 @@ class SimpleTransformerClassification(nn.Module):
         # output = output[:, 0]
         output = self.decoder(output)
         output = self.dropout(output)
-        output = output.mean(dim=1)
-
+        output = output.sum(dim=1)
         return output
 
     def load_from(self, state_dict):
@@ -112,7 +127,7 @@ class SimpleTransformerClassification(nn.Module):
                 continue
             if name in own_state and param.size() == own_state[name].size():
                 # If the parameter exists in the pretrained model and sizes match, use the pretrained weight
-                param = param.data
+                param = param. data
                 own_state[name].copy_(param)
 
 

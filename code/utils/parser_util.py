@@ -42,7 +42,7 @@ def prepare_parser():
                         help='directory to save exp results')
     parser.add_argument('--data_path',
                         # default='/home/yz2337/project/multi_fmri/data/biopoint',
-                        default='/home/yz2337/project/multi_fmri/data/ABIDE/numpy_norm',
+                        default='/home/yz2337/project/multi_fmri/data/ACE_Wave1/numpy_norm',
                         type=str,
                         help='directory to find biopoint numpy')
     parser.add_argument('--eval_num',
@@ -76,13 +76,13 @@ def prepare_parser():
                         default=512,
                         type=int)
     parser.add_argument('--n_layers',
-                        default=2,
+                        default=6,
                         type=int)
     parser.add_argument('--dropout',
                         default=0.1,
                         type=int)
     parser.add_argument('--nhead',
-                        default=4,
+                        default=8,
                         type=int)
 
 # Training parameters

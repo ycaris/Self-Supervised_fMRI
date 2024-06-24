@@ -18,12 +18,13 @@ parser = parser_util.prepare_parser()
 
 # testing parameter biopoint
 percent = 100
-version = 'v0_nopretrain'
+version = 'v4_pretrain_maskroi'
+pretrain_fold = 1
 parser.add_argument('--version', default=f'{version}', type=str)
 parser.add_argument('--checkpoint_path',
-                    default=f'/home/yz2337/project/multi_fmri/runs/abide_percent/{percent}/{version}', type=str)
+                    default=f'/home/yz2337/project/multi_fmri/runs/abide_percent_cv/pretrain_fold{pretrain_fold}/{percent}/{version}', type=str)
 parser.add_argument(
-    '--save_dir', default=f'/home/yz2337/project/multi_fmri/results/percent/{percent}', type=str)
+    '--save_dir', default=f'/home/yz2337/project/multi_fmri/results/percent_cv/pretrain_fold{pretrain_fold}/{percent}', type=str)
 
 
 # abide
@@ -39,7 +40,7 @@ args = parser.parse_args()
 torch.backends.cudnn.benchmark = True
 
 # args.json_file = f'/home/yz2337/project/multi_fmri/code/json_files/fmri_only/fold_{fold}_points.json'
-args.json_file = '/home/yz2337/project/multi_fmri/code/json_files/abide_percent/5/fold_1.json'
+args.json_file = f'/home/yz2337/project/multi_fmri/code/json_files/abide_percent_cv/pretrain_fold{pretrain_fold}/100/fold_1.json'
 
 
 # specify the GPU id's, GPU id's start from 0.
@@ -88,7 +89,7 @@ writer = csv.writer(f)
 header = ['Subject ID', 'True Group', 'Pred Group']
 writer.writerow(header)
 
-correct_sub = 0
+tp, tn, fn, fp = 0, 0, 0, 0
 seq_acc_sum = 0
 total = 0
 
@@ -123,7 +124,16 @@ with torch.no_grad():
         # calculate subject accuracy
         seq_mean = seq_pred.mean().item()
         sub_pred = 1 if seq_mean >= 0.5 else 0
-        correct_sub += (sub_pred == y_true)
+
+        # calculate specifity and sensitivity
+        if sub_pred == 1 and y_true == 1:
+            tp += 1
+        elif sub_pred == 1 and y_true == 0:
+            fp += 1
+        elif sub_pred == 0 and y_true == 0:
+            tn += 1
+        elif sub_pred == 0 and y_true == 1:
+            fn += 1
 
         row = [ids[0], int(y_true), int(sub_pred)]
         writer.writerow(row)
@@ -140,12 +150,12 @@ with torch.no_grad():
 fpr, tpr, threshold = metrics.roc_curve(target_list, pred_list)
 roc_auc = metrics.auc(fpr, tpr)
 
-# # Create a DataFrame to hold FPR, TPR, and Threshold
-# data = {'FPR': fpr, 'TPR': tpr, 'Threshold': threshold}
-# df = pd.DataFrame(data)
+# Create a DataFrame to hold FPR, TPR, and Threshold
+data = {'FPR': fpr, 'TPR': tpr, 'Threshold': threshold}
+df = pd.DataFrame(data)
 
-# # Save to CSV
-# df.to_csv(os.path.join(results_dir, 'roc_data.csv'), index=False)
+# Save to CSV
+df.to_csv(os.path.join(results_dir, 'roc_data.csv'), index=False)
 
 
 plt.title('Receiver Operating Characteristic')
@@ -157,8 +167,8 @@ plt.ylim([0, 1])
 plt.ylabel('True Positive Rate')
 plt.xlabel('False Positive Rate')
 plt.savefig(os.path.join(results_dir, f'{args.version}.png'))
-print(f'AUC is {roc_auc}')
+print(f'AUC is {roc_auc}, Sub ACC is {(tn+tp)/total}, Sensitvity is {tp/(tp+fn)}, Specificity is {tn/(tn+fp)}')
+print(f'Sequence Accuracy {seq_acc_sum/total}')
 
-
-print(f'{correct_sub} is correct, Subject Accuracy: {correct_sub/total} Sequence Accuracy {seq_acc_sum/total}')
+# print(f'{correct_sub} is correct, Subject Accuracy: {correct_sub/total} Sequence Accuracy {seq_acc_sum/total}')
 f.close()

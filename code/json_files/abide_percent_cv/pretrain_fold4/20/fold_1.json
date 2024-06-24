@@ -1,0 +1,1736 @@
+{
+    "train": [
+        {
+            "id": "USM_0050439_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "MaxMun_c_0051342_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051088_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "SDSU_0050191_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050357_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050379_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051028_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Yale_0050557_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050282_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "USM_0050455_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "MaxMun_c_0051338_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_1_0051235_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050997_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Trinity_0051134_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051154_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "USM_0050488_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Olin_0050105_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "OHSU_0050157_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Yale_0050601_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UCLA_1_0051280_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051052_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Pitt_0050047_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050360_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0050968_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Stanford_0051188_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050274_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050967_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Caltech_0051478_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_1_0051260_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "MaxMun_c_0051328_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Stanford_0051185_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051111_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051017_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051055_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0050958_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050356_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_2_0051313_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "SBL_0051576_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051076_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "KKI_0050790_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050335_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Trinity_0051139_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0050983_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051147_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051019_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "MaxMun_d_0051331_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Pitt_0050051_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "USM_0050449_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Trinity_0050254_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "USM_0050519_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050334_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "OHSU_0050144_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050358_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Yale_0050574_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0050996_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "KKI_0050822_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0050955_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Yale_0050624_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "SBL_0051558_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "KKI_0050821_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Pitt_0050056_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051018_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UCLA_2_0051305_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "USM_0050514_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Olin_0050122_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Leuven_1_0050695_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "MaxMun_b_0051327_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050349_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Leuven_2_0050722_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "MaxMun_d_0051329_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_2_0050405_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UCLA_1_0051212_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050352_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "USM_0050518_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051118_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "USM_0050530_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Trinity_0050243_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051059_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_1_0051277_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Trinity_0050232_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Trinity_0050262_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "MaxMun_d_0051355_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "USM_0050445_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Leuven_2_0050743_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "KKI_0050803_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "SDSU_0050207_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UCLA_1_0051214_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Pitt_0050050_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051077_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_2_0050427_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Yale_0050568_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Pitt_0050014_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Leuven_2_0050755_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051023_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "USM_0050505_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Stanford_0051186_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Pitt_0050045_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_2_0051303_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_2_0050397_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Leuven_1_0050692_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050342_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051122_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_2_0050407_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Stanford_0051172_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Yale_0050558_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Pitt_0050032_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "USM_0050529_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_2_0050412_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051057_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051058_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_1_0051206_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051152_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Pitt_0050057_rois_aal",
+            "group": 1
+        }
+    ],
+    "val": [
+        {
+            "id": "Pitt_0050012_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Pitt_0050015_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Pitt_0050023_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Pitt_0050024_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Olin_0050121_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "OHSU_0050149_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "OHSU_0050150_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "OHSU_0050152_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "SDSU_0050182_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "SDSU_0050183_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "SDSU_0050186_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "SDSU_0050189_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "SDSU_0050212_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Trinity_0050236_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Trinity_0050247_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Trinity_0050253_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050273_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050275_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050284_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050287_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050292_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050301_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_2_0050411_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "USM_0050477_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "USM_0050480_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "USM_0050491_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "USM_0050499_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "USM_0050502_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "USM_0050526_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Yale_0050603_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Yale_0050612_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Leuven_1_0050689_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Leuven_1_0050700_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Leuven_1_0050708_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Leuven_2_0050753_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Leuven_2_0050756_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "KKI_0050792_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "KKI_0050800_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "KKI_0050802_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050956_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050964_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050965_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050966_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050970_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050974_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050976_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050977_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050979_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050989_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051001_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051026_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051029_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Stanford_0051165_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Stanford_0051167_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Stanford_0051174_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UCLA_1_0051230_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UCLA_1_0051241_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UCLA_2_0051294_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UCLA_2_0051295_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UCLA_2_0051302_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "MaxMun_b_0051324_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "MaxMun_b_0051325_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Caltech_0051465_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Caltech_0051470_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "SBL_0051579_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "MaxMun_a_0051606_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Pitt_0050036_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Pitt_0050037_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Pitt_0050038_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Pitt_0050040_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Pitt_0050041_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Pitt_0050042_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Pitt_0050046_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Pitt_0050059_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Olin_0050114_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Olin_0050116_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "SDSU_0050198_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "SDSU_0050201_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "SDSU_0050204_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "SDSU_0050206_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "SDSU_0050213_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "SDSU_0050217_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Trinity_0050261_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050336_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050337_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050345_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050346_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050365_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050366_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050368_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050369_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050374_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050375_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_2_0050388_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_2_0050417_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "USM_0050434_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "USM_0050435_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "USM_0050436_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "USM_0050440_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "USM_0050444_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "USM_0050467_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "USM_0050468_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "USM_0050469_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Yale_0050567_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Yale_0050569_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Yale_0050575_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Leuven_1_0050698_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Leuven_2_0050725_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Leuven_2_0050737_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Leuven_2_0050741_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "KKI_0050778_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "KKI_0050789_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051056_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051062_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051079_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051096_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051099_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051112_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051126_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051131_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Trinity_0051135_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051150_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051151_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051155_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051156_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Stanford_0051191_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Stanford_0051193_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Stanford_0051198_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Stanford_0051199_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_1_0051256_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_1_0051257_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_1_0051275_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_1_0051281_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_2_0051307_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_2_0051312_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "MaxMun_c_0051336_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "MaxMun_c_0051346_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "MaxMun_a_0051363_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "MaxMun_a_0051373_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Caltech_0051477_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Caltech_0051483_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "SBL_0051566_rois_aal",
+            "group": 0
+        }
+    ],
+    "test": [
+        {
+            "id": "Pitt_0050005_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Pitt_0050006_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Pitt_0050011_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Pitt_0050027_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Pitt_0050055_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Olin_0050119_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Olin_0050132_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "OHSU_0050146_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "OHSU_0050147_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "OHSU_0050148_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "OHSU_0050153_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "OHSU_0050156_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "SDSU_0050188_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "SDSU_0050190_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Trinity_0050240_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050272_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050285_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050289_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050290_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050293_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050300_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050302_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050314_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050318_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_1_0050319_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_2_0050406_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UM_2_0050413_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "USM_0050487_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "USM_0050490_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "USM_0050493_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "USM_0050498_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "USM_0050507_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "USM_0050525_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "USM_0050527_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "USM_0050528_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Yale_0050621_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Leuven_1_0050690_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Leuven_1_0050702_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Leuven_2_0050747_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Leuven_2_0050749_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Leuven_2_0050751_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Leuven_2_0050754_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "KKI_0050798_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "KKI_0050823_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "KKI_0050824_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "KKI_0050825_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050959_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050986_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050988_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050991_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050993_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050994_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0050999_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051003_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051007_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051012_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051014_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051016_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051021_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051025_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "NYU_0051033_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Stanford_0051168_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Stanford_0051171_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Stanford_0051179_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UCLA_1_0051208_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UCLA_1_0051220_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UCLA_1_0051221_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UCLA_1_0051234_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UCLA_1_0051236_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UCLA_1_0051239_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UCLA_1_0051240_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UCLA_2_0051293_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "UCLA_2_0051317_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "MaxMun_d_0051330_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "MaxMun_d_0051351_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Caltech_0051463_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Caltech_0051474_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "SBL_0051574_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "SBL_0051577_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "SBL_0051582_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "SBL_0051583_rois_aal",
+            "group": 1
+        },
+        {
+            "id": "Pitt_0050031_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Pitt_0050048_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Pitt_0050060_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "OHSU_0050161_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "OHSU_0050168_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "OHSU_0050170_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "OHSU_0050171_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "SDSU_0050199_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "SDSU_0050208_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "SDSU_0050210_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "SDSU_0050214_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Trinity_0050259_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Trinity_0050263_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Trinity_0050264_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Trinity_0050266_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Trinity_0050267_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050327_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050329_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050338_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050343_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050348_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050362_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050363_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050372_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_1_0050373_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_2_0050390_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_2_0050391_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_2_0050415_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_2_0050421_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_2_0050425_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UM_2_0050428_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "USM_0050443_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "USM_0050448_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Yale_0050555_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Yale_0050561_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Yale_0050564_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Yale_0050570_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Yale_0050571_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Yale_0050573_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Leuven_1_0050685_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Leuven_1_0050688_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Leuven_1_0050691_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Leuven_1_0050699_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Leuven_1_0050701_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Leuven_2_0050724_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Leuven_2_0050726_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Leuven_2_0050735_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Leuven_2_0050739_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "KKI_0050776_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "KKI_0050814_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "KKI_0050820_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051039_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051040_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051041_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051044_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051054_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051067_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051069_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051072_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051082_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051087_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051093_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051100_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051107_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051109_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051110_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051113_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051121_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "NYU_0051129_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Trinity_0051132_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Trinity_0051142_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Stanford_0051181_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Stanford_0051182_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Stanford_0051183_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Stanford_0051190_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_1_0051262_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_1_0051266_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_1_0051272_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_1_0051282_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_2_0051311_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_2_0051315_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "UCLA_2_0051316_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "MaxMun_c_0051335_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "MaxMun_c_0051340_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "MaxMun_d_0051356_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "MaxMun_d_0051357_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "MaxMun_a_0051362_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Caltech_0051480_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Caltech_0051481_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Caltech_0051486_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Caltech_0051487_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Caltech_0051490_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "Caltech_0051493_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "SBL_0051560_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "SBL_0051561_rois_aal",
+            "group": 0
+        },
+        {
+            "id": "SBL_0051567_rois_aal",
+            "group": 0
+        }
+    ]
+}

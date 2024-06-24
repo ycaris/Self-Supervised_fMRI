@@ -26,12 +26,13 @@ parser = parser_util.prepare_parser()
 #     '--save_dir', default=f'/home/yz2337/project/multi_fmri/results/biopoint', type=str)
 
 # abide
-fold = 4
-percent = 40
-version = 'v3_pretrain_mlp_dp'
+fold = 1
+pretrain_fold = 1
+percent = 100
+version = 'v4_pretrain_maskroi'
 parser.add_argument('--version', default=f'{version}_fold{fold}', type=str)
 parser.add_argument('--checkpoint_path',
-                    default=f'/home/yz2337/project/multi_fmri/runs/abide_percent/{percent}/{version}/fold{fold}/model.pt', type=str)
+                    default=f'/home/yz2337/project/multi_fmri/runs/abide_percent_cv/pretrain_fold{pretrain_fold}/{percent}/{version}/fold{fold}/model.pt', type=str)
 parser.add_argument(
     '--save_dir', default=f'/home/yz2337/project/multi_fmri/results/percent/{percent}', type=str)
 
@@ -41,7 +42,7 @@ torch.backends.cudnn.benchmark = True
 
 # args.json_file = f'/home/yz2337/project/multi_fmri/code/json_files/fmri_only/fold_{fold}_points.json'
 # args.json_file = '/home/yz2337/project/multi_fmri/code/json_files/pretrained/abide_group.json'
-args.json_file = f'/home/yz2337/project/multi_fmri/code/json_files/abide_percent/{percent}/fold_{fold}.json'
+args.json_file = f'/home/yz2337/project/multi_fmri/code/json_files/abide_percent_cv/pretrain_fold{pretrain_fold}/100/fold_1.json'
 
 
 # specify the GPU id's, GPU id's start from 0.

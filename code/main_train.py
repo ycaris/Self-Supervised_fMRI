@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 from tensorboardX import SummaryWriter
 from optimizer.lr_scheduler import WarmupCosineSchedule
 from models.swin_transformer import SwinTransformerV2
-from models.simple_transformer import SimpleTransformerClassification
+from models.simple_transformer import SimpleTransformerClassification, SimpleTransformer
 from models.whole_transformer import WholeTransformerClassification
 from models.lstm import LSTMClassifier
 from utils import data_util, parser_util
@@ -55,12 +55,20 @@ def main(args):
                                num_layers=args.n_layers,
                                dropout=args.dropout,
                                ).to(device)
+    elif args.model_arch == 'simple-transformer':
+        model = SimpleTransformer(feature_size=args.feature_size,
+                                  emb_dim=args.emb_dim,
+                                  nhead=args.nhead,
+                                  num_layers=args.n_layers,
+                                  dropout=args.dropout,
+                                  time_period=args.time_period
+                                  ).to(device)
     else:
         raise RuntimeError('Wrong dataset or model_arch parameter setting.')
 
     # load pretrained weights
     if args.use_pretrained:
-        args.pretrained_dir = '/home/yz2337/project/multi_fmri/pretrain/runs/percentage/v3_mlp_whole_64_sm/model.pt'
+        args.pretrained_dir = '/home/yz2337/project/multi_fmri/pretrain/runs/abide_all/v5_mlp_masktime/model_50000.pt'
         model.load_from(torch.load(args.pretrained_dir)['state_dict'])
         print('Use pretrained weights')
 
@@ -80,7 +88,6 @@ def main(args):
     if args.opt == "adam":
         optimizer = torch.optim.Adam(
             params=model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
-
     elif args.opt == "adamw":
         optimizer = torch.optim.AdamW(
             params=model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
@@ -108,7 +115,9 @@ def main(args):
     val_loader = data_util.get_val_loader(args)
     # print(f'{len(train_loader)} subjects for training, {len(val_loader)} subjects for testing')
 
-    loss_function = torch.nn.BCEWithLogitsLoss()  # L1 loss
+    # loss_function = torch.nn.BCEWithLogitsLoss()  # L1 loss
+    # loss_function = torch.nn.MSELoss()
+    loss_function = torch.nn.MSELoss()  #
 
     global_step = 1
 

@@ -38,9 +38,9 @@ def load_and_normalize_files(folder_path, save_path, save_mat_path):
 
 
 # Example usage
-folder_path = '/home/yz2337/project/multi_fmri/data/ABIDE/numpy'
-save_path = '/home/yz2337/project/multi_fmri/data/ABIDE/numpy_norm'
-save_mat_path = '/home/yz2337/project/multi_fmri/data/ABIDE/mat_norm'
+folder_path = '/home/yz2337/project/multi_fmri/data/ACE_Wave1/numpy_norm'
+save_path = '/home/yz2337/project/multi_fmri/data/ACE_Wave1/numpy_norm2'
+save_mat_path = '/home/yz2337/project/multi_fmri/data/ACE_Wave1/mat_norm'
 normalized_arrays = load_and_normalize_files(
     folder_path, save_path, save_mat_path)
 
