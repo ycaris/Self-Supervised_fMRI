@@ -1,1 +1,1 @@
-#Self-supervised transformer for time-series fMRI in autism detection
+# Self-supervised transformer for time-series fMRI in autism detection
