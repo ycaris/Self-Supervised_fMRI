@@ -9,6 +9,6 @@ This is the code for [Self-supervised transformer for time-series fMRI in autism
 - Three random masking tasks classes are in the python script: pretrain/utils/transform.py, and each is named as RandomMask, RandomMaskTime, RandomMaskROI
 - To change different masking task, change line 132 in pretrain/utils/data_util.py to the class you want. The current implementation is RandomMaskROI
 - To run the pretraining process, change the parser arguments in pretrain/runExp.sh, or pretrain/utils/parser_util.py, then run the following command: 
-'''
+```
 bash pretrain/runExp.sh 
-'''
+```
