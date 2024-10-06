@@ -12,3 +12,16 @@ This is the code for [Self-supervised transformer for time-series fMRI in autism
 ```
 bash pretrain/runExp.sh 
 ```
+
+## ASD Classification
+- Change the parser arguments in code/runExp.sh or code/utils/parser_util.py to determine the file path, save path, and whether to utilize pretrained model or not
+- ASD classification can be performed on ACE or ABIDE by running the following command for model training:
+```
+bash code/runExp.sh
+bash code/runExpAce.sh
+```
+- the testing script is as follow:
+```
+bash code/runExp.sh
+bash code/runExpAce.sh
+```
